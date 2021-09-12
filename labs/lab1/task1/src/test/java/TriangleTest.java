@@ -1,4 +1,4 @@
-import com.app.Triangle;
+import com.app.model.Triangle;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;

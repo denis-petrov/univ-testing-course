@@ -1,4 +1,4 @@
-package com.app;
+package com.app.model;
 
 import com.app.exception.NotTriangleException;
 

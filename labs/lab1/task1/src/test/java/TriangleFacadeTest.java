@@ -1,6 +1,6 @@
 import com.app.exception.NotTriangleException;
-import com.app.Triangle;
-import com.app.TriangleFacade;
+import com.app.model.Triangle;
+import com.app.model.TriangleFacade;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;

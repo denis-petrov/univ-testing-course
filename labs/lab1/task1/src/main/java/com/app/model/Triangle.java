@@ -1,4 +1,4 @@
-package com.app;
+package com.app.model;
 
 import java.math.BigInteger;
 import java.util.Objects;

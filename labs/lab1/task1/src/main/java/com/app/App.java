@@ -1,6 +1,8 @@
 package com.app;
 
 import com.app.exception.NotTriangleException;
+import com.app.model.Triangle;
+import com.app.model.TriangleFacade;
 
 import java.util.Arrays;
 
