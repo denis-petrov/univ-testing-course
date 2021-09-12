@@ -1,0 +1,11 @@
+;Unknown error
+a b;Unknown error
+a b c;Incorrect input parameters
+a                b             c;Incorrect input parameters
+ё                @@@             #123;Incorrect input parameters
+0 0 0;Not a triangle
+0 1 0;Not a triangle
+0 1 1;Not a triangle
+1 1 1;Triangle type: Equilateral triangle
+1                1             1;Triangle type: Equilateral triangle
+
