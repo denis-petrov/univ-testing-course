@@ -27,6 +27,7 @@ public final class FileProcessor {
 
     /**
      * Parse test cases for executing with exe file
+     * @return Map<String, String> key is executable params; value is expected result
      */
     public static Map<String, String> parseDataForTesting() throws IOException {
         String content = readContentFromFile();
@@ -36,6 +37,8 @@ public final class FileProcessor {
 
     /**
      * Execute all test cases, compare with expected result and write to file
+     * @param content Map<String, String> content from file
+     * @throws IOException if CommandLineProcessor.execCmd throws exception
      */
     public static void writeToFileExecutedTestsResult(Map<String, String> content) throws IOException {
         var writer = new BufferedWriter(new FileWriter(PATH_TO_RESULT));
