@@ -1,10 +1,14 @@
 package com.app.util;
 
 public final class MessageUtil {
-    public static String DEFAULT_TRIANGLE = "Default triangle";
-    public static String ISOSCELES_TRIANGLE = "Isosceles triangle";
-    public static String EQUILATERAL_TRIANGLE = "Equilateral triangle";
-    public static String NOT_TRIANGLE = "Not a triangle";
-    public static String UNKNOWN_ERROR = "Unknown error";
-    public static String INCORRECT_INPUT_PARAMETERS = "Incorrect input parameters";
+
+    private MessageUtil() {
+    }
+
+    public static final String DEFAULT_TRIANGLE = "Default triangle";
+    public static final String ISOSCELES_TRIANGLE = "Isosceles triangle";
+    public static final String EQUILATERAL_TRIANGLE = "Equilateral triangle";
+    public static final String NOT_TRIANGLE = "Not a triangle";
+    public static final String UNKNOWN_ERROR = "Unknown error";
+    public static final String NEGATIVE_NUMBER_NOT_SUPPORTED_IN_POW = "Negative num is not supported in power operation";
 }

@@ -1,0 +1,51 @@
+;Unknown error
+               ;Unknown error
+тест кейс ;Unknown error
+\n;Unknown error
+\n  \t  ;Unknown error
+\z;Unknown error
+\c;Unknown error
+System.exit(0);Unknown error
+a b;Unknown error
+: : ;Unknown error
+0;Unknown error
+12;Unknown error
+4 6;Unknown error
+2   System.exit(0)  4  5 ;Incorrect input parameters
+@ @ @ @ ;Incorrect input parameters
+a b c;Incorrect input parameters
+12 ' as'' ';Incorrect input parameters
+a        b  c;Incorrect input parameters
+ё     @@@    #123;Incorrect input parameters
+20 20 @2@ '123' 10;Incorrect input parameters
+0 0 0;Not a triangle
+0 1 0;Not a triangle
+0 1 1;Not a triangle
+0 1 -1;Not a triangle
+0 1 -1 10;Not a triangle
+0 1 -1 10 8 10;Not a triangle
+-10 22 -10;Not a triangle
+-10 -22 -10;Not a triangle
+100 20 1;Not a triangle
+10000000 0 1;Not a triangle
+10000000 20 1;Not a triangle
+10000000 10000000 -10000000;Not a triangle
+10000000 -10000000 -10000000;Not a triangle
+10000000 10000000 10000000000;Not a triangle
+10000000 2 4;Not a triangle
+2 10000000 4;Not a triangle
+2 2 10000000;Not a triangle
+3 4 5;Triangle type: Default triangle
+33 44 55;Triangle type: Default triangle
+100 110 120;Triangle type: Default triangle
+10000 11000 12000;Triangle type: Default triangle
+1 1 1;Triangle type: Equilateral triangle
+40 40 40;Triangle type: Equilateral triangle
+1       1   1;Triangle type: Equilateral triangle
+20 20 10;Triangle type: Isosceles triangle
+4 4 2;Triangle type: Isosceles triangle
+10000000000 10000000000 2;Triangle type: Isosceles triangle
+10000000000 4 10000000000;Triangle type: Isosceles triangle
+10000000000 1000000000 10000000000;Triangle type: Isosceles triangle
+10000000000                      1000000000                 10000000000;Triangle type: Isosceles triangle
+

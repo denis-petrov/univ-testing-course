@@ -1,6 +1,7 @@
 package com.app;
 
 import com.app.exception.NotTriangleException;
+import com.app.exception.UnsupportedNegativeNumInPowException;
 import com.app.model.Triangle;
 import com.app.model.TriangleFacade;
 
@@ -18,10 +19,8 @@ public class App {
             System.out.println();
             Triangle triangle = TriangleFacade.buildTriangle(args[0], args[1], args[2]);
             System.out.println("Triangle type: " + triangle.getTriangleType());
-        } catch (NumberFormatException nfe) {
-            System.out.println(INCORRECT_INPUT_PARAMETERS);
-        } catch (NotTriangleException nte) {
-            System.out.println(NOT_TRIANGLE);
+        } catch (NotTriangleException | UnsupportedNegativeNumInPowException ex) {
+            System.out.println(ex.getMessage());
         } catch (Exception e) {
             System.out.println(UNKNOWN_ERROR);
         }

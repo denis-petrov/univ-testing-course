@@ -6,29 +6,29 @@ import java.math.BigInteger;
 import static com.app.util.MessageUtil.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TriangleTest {
+class TriangleTest {
 
     @Test
-    public void getTriangleType_EquilateralTriangle_ParamsAreCorrect() {
-        Triangle triangle = new Triangle(BigInteger.ONE, BigInteger.ONE, BigInteger.ONE);
+    void getTriangleType_EquilateralTriangle_ParamsAreCorrect() {
+        Triangle triangle = new Triangle(1, 1, 1);
         assertEquals(triangle.getTriangleType(), EQUILATERAL_TRIANGLE);
 
-        Triangle triangle2 = new Triangle(BigInteger.TEN, BigInteger.TEN, BigInteger.TEN);
+        Triangle triangle2 = new Triangle(10, 10, 10);
         assertEquals(triangle2.getTriangleType(), EQUILATERAL_TRIANGLE);
     }
 
     @Test
-    public void getTriangleType_IsoscelesTriangle_ParamsAreCorrect() {
-        Triangle triangle = new Triangle(BigInteger.TEN, BigInteger.TEN, BigInteger.ONE);
+    void getTriangleType_IsoscelesTriangle_ParamsAreCorrect() {
+        Triangle triangle = new Triangle(10, 10, 1);
         assertEquals(triangle.getTriangleType(), ISOSCELES_TRIANGLE);
 
-        Triangle triangle2 = new Triangle(BigInteger.ONE, BigInteger.TEN, BigInteger.TEN);
+        Triangle triangle2 = new Triangle(1, 10, 10);
         assertEquals(triangle2.getTriangleType(), ISOSCELES_TRIANGLE);
     }
 
     @Test
-    public void getTriangleType_DefaultTriangle_ParamsAreCorrect() {
-        Triangle triangle = new Triangle(BigInteger.valueOf(14), BigInteger.valueOf(12), BigInteger.valueOf(13));
+    void getTriangleType_DefaultTriangle_ParamsAreCorrect() {
+        Triangle triangle = new Triangle(14, 12, 13);
         assertEquals(triangle.getTriangleType(), DEFAULT_TRIANGLE);
     }
 }

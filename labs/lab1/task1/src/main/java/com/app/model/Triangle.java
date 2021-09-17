@@ -1,25 +1,24 @@
 package com.app.model;
 
-import java.math.BigInteger;
 import java.util.Objects;
 
 import static com.app.util.MessageUtil.*;
 
 public class Triangle {
 
-    private final BigInteger a;
-    private final BigInteger b;
-    private final BigInteger c;
+    private final Integer first;
+    private final Integer second;
+    private final Integer third;
 
-    public Triangle(BigInteger a, BigInteger b, BigInteger c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
+    public Triangle(Integer first, Integer second, Integer third) {
+        this.first = first;
+        this.second = second;
+        this.third = third;
     }
 
     public String getTriangleType() {
-        return (a.equals(b) && b.equals(c) && a.equals(c)) ? EQUILATERAL_TRIANGLE
-                : (a.equals(b) || b.equals(c) || a.equals(c)) ? ISOSCELES_TRIANGLE
+        return (first.equals(second) && second.equals(third) && first.equals(third)) ? EQUILATERAL_TRIANGLE
+                : (first.equals(second) || second.equals(third) || first.equals(third)) ? ISOSCELES_TRIANGLE
                 : DEFAULT_TRIANGLE;
     }
 
@@ -28,11 +27,13 @@ public class Triangle {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Triangle triangle = (Triangle) o;
-        return Objects.equals(a, triangle.a) && Objects.equals(b, triangle.b) && Objects.equals(c, triangle.c);
+        return Objects.equals(first, triangle.first)
+                && Objects.equals(second, triangle.second)
+                && Objects.equals(third, triangle.third);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(a, b, c);
+        return Objects.hash(first, second, third);
     }
 }

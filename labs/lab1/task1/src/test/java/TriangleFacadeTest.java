@@ -8,19 +8,19 @@ import java.math.BigInteger;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class TriangleFacadeTest {
+class TriangleFacadeTest {
 
     @Test
-    public void buildTriangle_Triangle_ParamsAreCorrect() {
-        Triangle triangle = new Triangle(BigInteger.ONE, BigInteger.ONE, BigInteger.ONE);
+    void buildTriangle_Triangle_ParamsAreCorrect() {
+        Triangle triangle = new Triangle(1, 1, 1);
         assertEquals(TriangleFacade.buildTriangle("1", "1", "1"), triangle);
 
-        Triangle triangle2 = new Triangle(BigInteger.TEN, BigInteger.TEN, BigInteger.TEN);
+        Triangle triangle2 = new Triangle(10, 10, 10);
         assertEquals(TriangleFacade.buildTriangle("10", "10", "10"), triangle2);
     }
 
     @Test
-    public void Should_ThrowNumberFormatException_WhenParametersAreNotLongType() {
+    void Should_ThrowNumberFormatException_WhenParametersAreNotLongType() {
         assertThrows(NumberFormatException.class, () -> TriangleFacade.buildTriangle("test", "12", "12"));
         assertThrows(NumberFormatException.class, () -> TriangleFacade.buildTriangle("12", "test", "12"));
         assertThrows(NumberFormatException.class, () -> TriangleFacade.buildTriangle("12", "12", "test"));
@@ -29,7 +29,7 @@ public class TriangleFacadeTest {
     }
 
     @Test
-    public void Should_ThrowNotTriangleException_WhenParametersAreLessOrEqualToZero() {
+    void Should_ThrowNotTriangleException_WhenParametersAreLessOrEqualToZero() {
         assertThrows(NotTriangleException.class, () -> TriangleFacade.buildTriangle("0", "1", "1"));
         assertThrows(NotTriangleException.class, () -> TriangleFacade.buildTriangle("1", "0", "1"));
         assertThrows(NotTriangleException.class, () -> TriangleFacade.buildTriangle("1", "1", "0"));
@@ -39,7 +39,7 @@ public class TriangleFacadeTest {
     }
 
     @Test
-    public void Should_ThrowNotTriangleException_WhenParametersCannotConstructTriangle() {
+    void Should_ThrowNotTriangleException_WhenParametersCannotConstructTriangle() {
         assertThrows(NotTriangleException.class, () -> TriangleFacade.buildTriangle("100", "1", "1"));
         assertThrows(NotTriangleException.class, () -> TriangleFacade.buildTriangle("1", "100", "1"));
         assertThrows(NotTriangleException.class, () -> TriangleFacade.buildTriangle("1", "1", "100"));
