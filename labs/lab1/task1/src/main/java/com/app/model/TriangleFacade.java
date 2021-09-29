@@ -27,11 +27,11 @@ public final class TriangleFacade {
     }
 
     private static Integer parseInt(String data) {
-        Pattern pattern = Pattern.compile(POWER_NUMBER);
-        Matcher matcher = pattern.matcher(data);
-        if (matcher.find()) {
-            var num = Integer.parseInt(matcher.group(1));
-            var power = Integer.parseInt(matcher.group(2));
+        Pattern patternPower = Pattern.compile(POWER_NUMBER);
+        Matcher matcherPower = patternPower.matcher(data);
+        if (matcherPower.find()) {
+            var num = Integer.parseInt(matcherPower.group(1));
+            var power = Integer.parseInt(matcherPower.group(2));
             if (num < 0 || power < 0)
                 throw new UnsupportedNegativeNumInPowException(MessageUtil.NEGATIVE_NUMBER_NOT_SUPPORTED_IN_POW);
             var res = Math.pow(num, power);
