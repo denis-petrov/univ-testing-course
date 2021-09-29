@@ -26,7 +26,7 @@ public final class UrlProcessor {
 
     public static Pair<Map<String, String>, Map<String, String>> crawlingThroughUrls(
             List<String> urls,
-            boolean isNotNestedLinks
+            boolean isNeedToProcessNestedLinks
     ) {
         var brokenLinks = new LinkedHashMap<String, String>();
         var stableLinks = new LinkedHashMap<String, String>();
@@ -37,11 +37,11 @@ public final class UrlProcessor {
                         .timeout(3000)
                         .execute();
 
-                if (isNotNestedLinks)
-                    processNestedLinks(brokenLinks, stableLinks, url);
-
                 if (response.statusCode() != HttpURLConnection.HTTP_OK)
                     throw new RuntimeException();
+
+                if (isNeedToProcessNestedLinks)
+                    processNestedLinks(brokenLinks, stableLinks, url);
 
                 stableLinks.putIfAbsent(url, "stable");
             } catch (Exception e) {
@@ -57,7 +57,7 @@ public final class UrlProcessor {
             String url
     ) throws IOException {
         List<String> linksFromPage = findLinksFromPage(url).stream()
-                .filter(link -> URL_PATTERN.matcher(link).find())
+                .filter(URL_PATTERN.asPredicate())
                 .collect(Collectors.toList());
         var nestedLinks = crawlingThroughUrls(linksFromPage, false);
         brokenLinks.putAll(nestedLinks.getValue0());
