@@ -1,5 +1,1 @@
-http://192.168.30.198/broken-links/
-http://tests.etwetw/twetwe
-https://www.google.com/
-https://vk.com/feed
-https://testasdasdasdas.com/feed
+http://91.210.252.240/broken-links/
