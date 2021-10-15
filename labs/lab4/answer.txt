@@ -1,0 +1,138 @@
+1.	task:
+		Identifier must be from 1 to 128 chars.
+		Identifier must starts from letter or digit
+		Identifier should contains english letter, _, - digits
+
+	equivalence classes: 
+		identifier_length ::= [1..128], 
+		identifier ::= <first_ch><avaliable_chs>|<first_ch>
+		first_ch ::= <[a-zA-Z]>|<_>
+		chars ::= <chars><char>|<char>
+		char ::= <first_ch>|<->|<digit>
+		digit ::= <[\d]>
+		
+	test cases:
+		1. identifier_length ::= { 
+			invalid : { 0, 129 }, 
+			valid : { 1, 20, 128 }
+		}
+		
+		2. first_ch ::= {
+			invalid : { [^a-zA-Z], ^_ }, 
+			valid : { a, A, z, Z, _ }
+		}
+		
+		3. char ::= <first_ch> && {
+			invalid : { ^\d, ^- }
+			valid : { \d, - }
+		}
+		
+2.	task:
+		val basePercent = 15 
+		val creditPercentBySum = 15 
+		val creditSum: Int
+		if (creditSum in 10.000..100.000) {
+			creditPercentBySum = basePercent	
+		} else if (creditSum from 100.001..500.000) {
+			creditPercentBySum = basePercent - 1
+		} else if (creditSum from 500.001..1.000.000) {
+			creditPercentBySum = basePercent - 2
+		} else if (creditSum >= 1.000.001) {
+			creditPercentBySum = discuss
+		}
+		
+		val creditTerm = user data
+		val creditPercentByTerm = basePercent
+		if (creditTerm <= 3) {
+			creditPercentByTerm = basePercent	
+		} else if (3 < creditTerm <= 5) {
+			creditPercentByTerm = basePercent + 1	
+		} else if (5 < creditTerm <= 10) {
+			creditPercentByTerm = basePercent + 2	
+		} else if (10 <= creditTerm) {
+			creditPercentByTerm = discuss
+		}
+	
+	
+	equivalence classes: 
+		creditSum ::= { [10.000 .. 100.000], [100.001 .. 500.000], [500.001 .. 1.000.000], [1.000.001 .. +inf] }
+		creditTerm ::= { [min .. 3], (3 .. 5], (5 .. 10], (10 .. +inf) }
+				
+	test cases:
+		will check test cases by end percent: {
+			"sum = 10.000 && term = 3" : "percent = 16",
+			"sum = 100.000 && term = 3" : "percent = 16",
+			"sum = 101.000 && term = 3" : "percent = 15",
+			"sum = 500.000 && term = 3" : "percent = 15",
+			"sum = 501.000 && term = 3" : "percent = 14",
+			"sum = 1.000.000 && term = 3" : "percent = 14",
+			"sum = 1.000.001 && term = 3" : "percent = 14 - X",
+			
+			"sum = 10.000 && term = 5" : "percent = 17",
+			"sum = 100.000 && term = 5" : "percent = 17",
+			"sum = 101.000 && term = 5" : "percent = 16",
+			"sum = 500.000 && term = 5" : "percent = 16",
+			"sum = 501.000 && term = 5" : "percent = 15",
+			"sum = 1.000.000 && term = 5" : "percent = 15",
+			"sum = 1.000.001 && term = 5" : "percent = 15 - X",
+
+			"sum = 10.000 && term = 10" : "percent = 17",
+			"sum = 100.000 && term = 10" : "percent = 17",
+			"sum = 101.000 && term = 10" : "percent = 16",
+			"sum = 500.000 && term = 10" : "percent = 16",
+			"sum = 501.000 && term = 10" : "percent = 15",
+			"sum = 1.000.000 && term = 10" : "percent = 15",
+			"sum = 1.000.001 && term = 10" : "percent = 15 - X",
+			
+			"sum = 10.000 && term = 11" : "percent = 17 - X",
+			"sum = 100.000 && term = 11" : "percent = 17 - X",
+			"sum = 101.000 && term = 11" : "percent = 16 - X",
+			"sum = 500.000 && term = 11" : "percent = 16 - X",
+			"sum = 501.000 && term = 11" : "percent = 15 - X",
+			"sum = 1.000.000 && term = 11" : "percent = 15 - X",
+			"sum = 1.000.001 && term = 11" : "percent = 15 - X",
+
+		}
+
+	
+3.	task:
+		Birthday input field:
+			Day: DD
+			Month: MM
+			Year: YYYY
+			
+	equivalence classes:
+		Let approximate max age will be = 120 as MAX_AGE
+		Day: [1 .. 31]
+		Month: [1 .. 12]
+		Year: [ (Year < (2021 - MAX_AGE)) .. 2021 ]
+		
+	test cases:
+		Day: { 
+			"invalid" : { -1, 0, 32, {all not Int symbol} },
+			"valid" : { 1, 20, 31 }
+		}
+		
+		Month: { 
+			"invalid" : { -1, 0, 13, {all not Int symbol} },
+			"valid" : { 1, 5, 12 }
+		}
+		
+		Year: { 
+			"invalid" : { -1, 0, 1000, { Year < 1901 }, {all not Int symbol} },
+			"valid" : { 1, 5, 12 }
+		}
+			
+		Special case:
+			When date is more than current date but current year, for instance:
+				next day, than today
+				next month, than today
+				but same year as 2021
+				
+				as 30.10.2021
+				as 11.11.2021
+				etc.
+				
+				
+	
+	
