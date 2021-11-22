@@ -29,6 +29,8 @@ public class ProductAPITest {
     private final static String PRODUCTS_DIR = PAYLOADS_DIR + "products/";
     private final static String PRODUCTS_VALID_DIR = PRODUCTS_DIR + "valid/";
     private final static String PRODUCTS_INVALID_DIR = PRODUCTS_DIR + "invalid/";
+    private final static String PRODUCTS_INVALID_ADDABLE_DIR = PRODUCTS_INVALID_DIR + "addable/";
+    private final static String PRODUCTS_INVALID_NOT_ADDABLE_DIR = PRODUCTS_INVALID_DIR + "notAddable/";
 
     private final static String GET_ENDPOINT = "products";
     private final static String ADD_ENDPOINT = "addproduct";
@@ -91,9 +93,9 @@ public class ProductAPITest {
     @DataProvider(name = "not-addable-invalid-product")
     public Object[][] notAddableInvalidProduct() {
         return new Object[][]{
-                {new File(PRODUCTS_INVALID_DIR + "invalidFieldsType.json")},
-                {new File(PRODUCTS_INVALID_DIR + "categoryIdLessThan1.json")},
-                {new File(PRODUCTS_INVALID_DIR + "categoryIdMoreThan15.json")},
+                {new File(PRODUCTS_INVALID_NOT_ADDABLE_DIR + "invalidFieldsType.json")},
+                {new File(PRODUCTS_INVALID_NOT_ADDABLE_DIR + "categoryIdLessThan1.json")},
+                {new File(PRODUCTS_INVALID_NOT_ADDABLE_DIR + "categoryIdMoreThan15.json")},
         };
     }
 
@@ -121,10 +123,10 @@ public class ProductAPITest {
     @DataProvider(name = "addable-invalid-product")
     public Object[][] addableInvalidProduct() {
         return new Object[][]{
-                {new File(PRODUCTS_INVALID_DIR + "hitLessThan0.json")},
-                {new File(PRODUCTS_INVALID_DIR + "hitMoreThan2.json")},
-                {new File(PRODUCTS_INVALID_DIR + "statusLessThan0.json")},
-                {new File(PRODUCTS_INVALID_DIR + "statusMoreThan1.json")},
+                {new File(PRODUCTS_INVALID_ADDABLE_DIR + "hitLessThan0.json")},
+                {new File(PRODUCTS_INVALID_ADDABLE_DIR + "hitMoreThan2.json")},
+                {new File(PRODUCTS_INVALID_ADDABLE_DIR + "statusLessThan0.json")},
+                {new File(PRODUCTS_INVALID_ADDABLE_DIR + "statusMoreThan1.json")},
         };
     }
 
@@ -200,8 +202,16 @@ public class ProductAPITest {
     @DataProvider(name = "product-for-delete-by-id")
     public Object[][] productForDeleteById() {
         return new Object[][]{
-                {304},
-                {305},
+                {306},
+                {307},
+                {308},
+                {309},
+                {310},
+                {311},
+                {312},
+                {313},
+                {314},
+                {315},
         };
     }
 
