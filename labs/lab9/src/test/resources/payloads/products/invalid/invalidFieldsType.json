@@ -1,0 +1,13 @@
+{
+  "id": 1111,
+  "category_id": "category_id not int",
+  "title": 111,
+  "alias": 222,
+  "content": 333,
+  "price": "price not int",
+  "old_price": "old_price not int",
+  "status": "status not int",
+  "keywords": 333,
+  "description": 444,
+  "hit": "hit not int"
+}

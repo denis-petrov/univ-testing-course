@@ -1,0 +1,13 @@
+{
+  "id": 299,
+  "category_id": 11,
+  "title": "текст",
+  "alias": "text",
+  "content": "content",
+  "price": 111,
+  "old_price": 222,
+  "status": 1,
+  "keywords": "keywords 2",
+  "description": "description 2",
+  "hit": 0
+}
