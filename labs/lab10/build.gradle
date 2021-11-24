@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group 'com.app'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.seleniumhq.selenium:selenium-java:4.0.0'
+    testImplementation 'org.slf4j:slf4j-simple:2.0.0-alpha5'
+
+    testImplementation 'org.testng:testng:7.4.0'
+    testRuntimeOnly 'org.testng:testng:7.4.0'
+}
+
+test {
+    useTestNG()
+}
