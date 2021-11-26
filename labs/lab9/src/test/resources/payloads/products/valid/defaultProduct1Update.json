@@ -1,13 +1,13 @@
 {
   "id": 315,
   "category_id": 11,
-  "title": "текст",
-  "alias": "text",
-  "content": "content",
-  "price": 111,
-  "old_price": 222,
+  "title": "текст-с-обновлением",
+  "alias": "text-after-update",
+  "content": "content-after-update",
+  "price": 90010,
+  "old_price": 106060,
   "status": 1,
-  "keywords": "keywords 2",
-  "description": "description 2",
+  "keywords": "keywords 2 update",
+  "description": "description 2 update",
   "hit": 0
 }
