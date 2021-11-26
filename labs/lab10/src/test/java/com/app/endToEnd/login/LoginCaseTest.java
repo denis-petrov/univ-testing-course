@@ -3,19 +3,19 @@ package com.app.endToEnd.login;
 import com.app.DriverUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
-import static org.testng.AssertJUnit.assertTrue;
+import static org.testng.Assert.assertTrue;
 
 
 public class LoginCaseTest {
 
+    private final static String LOGIN_PAGE = "login.page";
+
     public static WebDriver driver;
     public static LoginCase loginCase;
 
-    @BeforeSuite
+    @BeforeMethod
     public static void setup() {
         DriverUtil.setupDriver();
 
@@ -24,18 +24,42 @@ public class LoginCaseTest {
 
         driver.manage().window().maximize();
 
-        DriverUtil.goToPage(driver, "login.page");
+        DriverUtil.goToPage(driver, LOGIN_PAGE);
     }
 
     @Test
-    public void loginTest() {
-        loginCase.login();
-        assertTrue(loginCase.doesSuccessAlertExist());
+    public void loginWithEmptyCredentialsTest() {
+        loginCase.loginBySpecialCredentials("", "");
+        assertTrue(loginCase.doesFieldsErrorDisplayed());
     }
 
-    @AfterSuite
-    public void logout() {
+    @Test
+    public void loginWithEmptyPasswordCredentialTest() {
+        loginCase.loginBySpecialCredentials("", "test");
+        assertTrue(loginCase.doesFieldsErrorDisplayed());
+    }
+
+    @Test
+    public void loginWithEmptyLoginCredentialTest() {
+        loginCase.loginBySpecialCredentials("test", "");
+        assertTrue(loginCase.doesFieldsErrorDisplayed());
+    }
+
+    @Test
+    public void loginWithInvalidLoginAndPasswordCredentialsTest() {
+        loginCase.loginBySpecialCredentials("test", "test");
+        assertTrue(loginCase.doesDangerAlertDisplayed());
+    }
+
+    @Test
+    public void loginWithCorrectCredentialsTest() {
+        loginCase.loginByDefaultCredentials();
+        assertTrue(loginCase.doesSuccessAlertDisplayed());
         loginCase.clickLogout();
+    }
+
+    @AfterMethod
+    public void close() {
         driver.close();
     }
 }

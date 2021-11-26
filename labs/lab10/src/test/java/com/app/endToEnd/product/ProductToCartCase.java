@@ -17,8 +17,8 @@ public class ProductToCartCase {
     @FindBy(xpath = "//a[contains(@id, 'productAdd')]")
     private WebElement addToCart;
 
-    @FindBy(xpath = "//*[@id='cart']/div/div/div[2]/div/table/tbody/tr[1]/td[2]/a")
-    private WebElement addedProductInCart;
+    @FindBy(xpath = "//*[contains(@class, 'modal fade in')]")
+    private WebElement modalWindow;
 
     @FindBy(xpath = "//*[contains(@href, 'cart/view')]")
     private WebElement linkToOrdering;
@@ -28,7 +28,7 @@ public class ProductToCartCase {
     }
 
     public boolean isProductWasAddedToCard() {
-        return addedProductInCart.isEnabled();
+        return modalWindow.isDisplayed();
     }
 
     public void goToOrdering() {

@@ -13,6 +13,9 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class OrderingCaseTest {
 
+    private final static String LOGIN_PAGE = "login.page";
+    private final static String PRODUCT_PAGE = "product.page";
+
     public static WebDriver driver;
     public static ProductToCartCase productToCartCase;
     public static OrderingCase orderingCase;
@@ -32,10 +35,10 @@ public class OrderingCaseTest {
 
     @Test
     public void addProductToCart() {
-        DriverUtil.goToPage(driver, "login.page");
-        loginCase.login();
+        DriverUtil.goToPage(driver, LOGIN_PAGE);
+        loginCase.loginByDefaultCredentials();
 
-        DriverUtil.goToPage(driver, "product.page");
+        DriverUtil.goToPage(driver, PRODUCT_PAGE);
         productToCartCase.clickAddToCart();
         DriverUtil.awaitDriver(driver, 10);
         productToCartCase.goToOrdering();

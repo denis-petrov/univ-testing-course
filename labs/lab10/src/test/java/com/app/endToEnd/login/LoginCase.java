@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class LoginCase {
 
     public WebDriver driver;
@@ -21,11 +23,17 @@ public class LoginCase {
     @FindBy(xpath = "//*[contains(@id, 'pasword')]")
     private WebElement passwordField;
 
+    @FindBy(xpath = "//*[contains(@class, 'glyphicon form-control-feedback glyphicon-remove')]")
+    private List<WebElement> listErrors;
+
     @FindBy(xpath = "//button[contains(@class, 'btn btn-default') and @type='submit']")
     private WebElement submitBtn;
 
     @FindBy(xpath = "//*[contains(@class, 'alert alert-success')]")
     private WebElement successAlert;
+
+    @FindBy(xpath = "//*[contains(@class, 'alert alert-danger')]")
+    private WebElement dangerAlert;
 
     @FindBy(xpath = "//a[contains(@class, 'dropdown-toggle')]")
     private WebElement accountDropdown;
@@ -45,8 +53,17 @@ public class LoginCase {
         submitBtn.click();
     }
 
-    public boolean doesSuccessAlertExist() {
+    public boolean doesFieldsErrorDisplayed() {
+        return listErrors.stream()
+                .anyMatch(WebElement::isDisplayed);
+    }
+
+    public boolean doesSuccessAlertDisplayed() {
         return successAlert.isDisplayed();
+    }
+
+    public boolean doesDangerAlertDisplayed() {
+        return dangerAlert.isDisplayed();
     }
 
     public void clickLogout() {
@@ -54,9 +71,15 @@ public class LoginCase {
         logoutLink.click();
     }
 
-    public void login() {
+    public void loginByDefaultCredentials() {
         inputLogin(ConfProperties.getProperty("credentials.login"));
         inputPassword(ConfProperties.getProperty("credentials.password"));
+        clickSubmitBtn();
+    }
+
+    public void loginBySpecialCredentials(String login, String password) {
+        inputLogin(login);
+        inputPassword(password);
         clickSubmitBtn();
     }
 }

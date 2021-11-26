@@ -14,6 +14,8 @@ public class SearchInCatalogCaseTest {
     public static WebDriver driver;
     public static SearchInCatalogCase searchInCatalogCase;
 
+    private final static String CATEGORY_PAGE = "category.page";
+
     @BeforeSuite
     public static void setup() {
         DriverUtil.setupDriver();
@@ -25,9 +27,19 @@ public class SearchInCatalogCaseTest {
     }
 
     @Test
-    public void addProductToCart() {
-        DriverUtil.goToPage(driver, "category.page");
-        searchInCatalogCase.clickOnLinkToCategory();
+    public void addProductToCart() throws InterruptedException {
+        DriverUtil.goToPage(driver, CATEGORY_PAGE);
+        searchInCatalogCase.clickOnMechanismSearchCheckbox();
+
+        Thread.sleep(3000);
+        searchInCatalogCase.clickOnGlassSearchCheckbox();
+        Thread.sleep(3000);
+        searchInCatalogCase.clickOnStrapSearchCheckbox();
+        Thread.sleep(3000);
+        searchInCatalogCase.clickOnBodySearchCheckbox();
+        Thread.sleep(3000);
+
+        searchInCatalogCase.clickOnLinkToProduct();
         assertTrue(searchInCatalogCase.isProductDisplayed());
     }
 

@@ -11,6 +11,8 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class ProductToCartCaseTest {
 
+    private final static String PRODUCT_PAGE = "product.page";
+
     public static WebDriver driver;
     public static ProductToCartCase productToCartCase;
 
@@ -23,7 +25,7 @@ public class ProductToCartCaseTest {
 
         driver.manage().window().maximize();
 
-        DriverUtil.goToPage(driver, "product.page");
+        DriverUtil.goToPage(driver, PRODUCT_PAGE);
     }
 
     @Test
